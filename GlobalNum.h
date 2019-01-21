@@ -6,10 +6,10 @@
 */
 #include "ConstantNum.h"
 
-extern int turn;
-extern int blackframe;
-extern int whiteframe;
+extern int turn;        //どちらのターンか BLACK:1 WHITE:2
+extern int blackframe;  //黒のコマの数
+extern int whiteframe;  //白のコマの数
 
-extern sMASS MassData [10][10];
+extern sMASS MassData [10][10]; //各マスのデータ配列
 
 #endif
