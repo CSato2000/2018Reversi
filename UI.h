@@ -5,6 +5,6 @@
 #include "ConstantNum.h"
 #include "GlobalNum.h"
 
-void UI(HDC);
+void UI(HWND);
 
 #endif

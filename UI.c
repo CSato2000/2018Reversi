@@ -1,7 +1,11 @@
 #include <windows.h>
 #include "UI.h"
 
-void UI(hdc) {
+void UI(hWnd) {
+
+	HDC hdc;
+	hdc = GetDC(hWnd);
+
 	LPTSTR lptStr1 = TEXT("黒のターンです");
 	LPTSTR lptStr2 = TEXT("白のターンです");
 
@@ -17,5 +21,7 @@ void UI(hdc) {
 
 	length = wsprintf(buf, L"%d", blackframe + whiteframe);
 	TextOut(hdc, 460, 70, buf, length);
+
+	ReleaseDC(hWnd,hdc);
 
 }
