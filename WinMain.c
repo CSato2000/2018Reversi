@@ -54,6 +54,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp) {
 		break;
 
 	case WM_KEYDOWN:	//ÉLÅ[Ç™âüÇ≥ÇÍÇΩ
+		KeyController(wp);
 		InvalidateRect(hwnd, NULL, FALSE);
 		break;
 
