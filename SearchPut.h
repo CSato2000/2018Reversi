@@ -2,6 +2,6 @@
 #define _SEARCH_PUTINCLUDE_
 #include "GlobalNum.h"
 
-int SearchPut(int);
+int SearchPut(int, int);
 
 #endif
