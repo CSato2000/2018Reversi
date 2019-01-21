@@ -1,23 +1,21 @@
 #include <windows.h>
-#include "ConstantNum.h"
-#include "GlobalNum.h"
 #include "UI.h"
 
-void UI(hdc, nowPlayer, numblack, numwhite) {
+void UI(hdc) {
 	LPTSTR lptStr1 = TEXT("黒のターンです");
 	LPTSTR lptStr2 = TEXT("白のターンです");
 
-	if (nowPlayer == 2)TextOut(hdc, 460, 10, lptStr1, lstrlen(lptStr1));
-	if (nowPlayer == 1)TextOut(hdc, 460, 10, lptStr2, lstrlen(lptStr2));
+	if (turn == BLACK)TextOut(hdc, 460, 10, lptStr1, lstrlen(lptStr1));
+	if (turn == WHITE)TextOut(hdc, 460, 10, lptStr2, lstrlen(lptStr2));
 
 	WCHAR buf[20];
-	int length = wsprintf(buf, L"%d", numblack);
+	int length = wsprintf(buf, L"%d", blackframe);
 	TextOut(hdc, 460, 30, buf, length);
 
-	length = wsprintf(buf, L"%d", numwhite);
+	length = wsprintf(buf, L"%d", whiteframe);
 	TextOut(hdc, 460, 50, buf, length);
 
-	length = wsprintf(buf, L"%d", numblack + numwhite);
+	length = wsprintf(buf, L"%d", blackframe + whiteframe);
 	TextOut(hdc, 460, 70, buf, length);
 
 }
