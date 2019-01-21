@@ -5,13 +5,14 @@ void BoardDraw(HWND hWnd) {
 	
 	static HDC hdc;
 	static PAINTSTRUCT ps;
-	static HBRUSH hBrush[3];
+	static HBRUSH hBrush[4];
 	static initFlag;
 
 	if (initFlag == 0) {
 		hBrush[0] = CreateSolidBrush(RGB(0, 0xAA, 0));          // 盤面（緑）
 		hBrush[1] = CreateSolidBrush(RGB(0xFF, 0xFF, 0xFF));    // WHITE
 		hBrush[2] = CreateSolidBrush(RGB(0, 0, 0));		        // BLACK
+		hBrush[3] = CreateSolidBrush(RGB(0xAA, 0xAA, 0xAA));
 		initFlag = 1;
 	}
 
@@ -37,12 +38,17 @@ void BoardDraw(HWND hWnd) {
 		LineTo(hdc, 400, 50 * (i + 1));
 	}
 
+	//キーの選択位置
+	SelectObject(hdc, hBrush[3]);
+	Rectangle(hdc, keyPos.x * 50, keyPos.y * 50, (keyPos.x + 1) * 50 + 1, (keyPos.y + 1) * 50 + 1);
+
 	//小さな黒丸の描画
 	SelectObject(hdc, hBrush[2]);
 	for (int i = 0; i < 4; i++) {
 		Ellipse(hdc, dot[i].x - 5, dot[i].y - 5,
 			dot[i].x + 5, dot[i].y + 5);
 	}
+
 
 	// オセロ盤の表示
 	for (int i = 1; i <= 8; i++) {
