@@ -1,6 +1,10 @@
 #ifndef _UI_INCLUDE_
 #define _UI_INCLUDE_
 
-void UI(HDC,int,int,int);
+#include <windows.h>
+#include "ConstantNum.h"
+#include "GlobalNum.h"
+
+void UI(HDC);
 
 #endif
