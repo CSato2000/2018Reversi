@@ -3,8 +3,9 @@
 
 #include "SearchPut.h"
 #include "GameEnd.h"
+#include "GlobalNum.h"
 
-int AllCheckPut(int);
+int AllCheckPut();
 
 
 #endif
