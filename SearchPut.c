@@ -20,10 +20,10 @@ int SearchPut(x, y) {
 		turnRev = (turn == WHITE ? BLACK : WHITE);		//現在のターンの逆の色
 
 														/* 調べた先が相手のマスならその先を調べる */
-		while (MassData[y + cy][x + cx] == turnRev) {
+		while (MassData[y + cy][x + cx].type == turnRev) {
 
 			//調べた先が相手の色でその先が自分の色なら置ける
-			if (MassData[y + cy + cy][x + cx + cx] == turn) {
+			if (MassData[y + cy + cy][x + cx + cx].type == turn) {
 
 				MassData[y][x].putflag = TRUE;
 

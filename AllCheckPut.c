@@ -18,7 +18,7 @@ int AllCheckPut() {
 				MassData[y][x].putflag = FALSE;		//前回の置けるマスのリセット
 			}
 
-			if (MassData[y][x] == EMPTY) SearchPut(x, y);	//SearchPut呼び出し
+			if (MassData[y][x].type == EMPTY) SearchPut(x, y);	//SearchPut呼び出し
 
 		}
 	}
