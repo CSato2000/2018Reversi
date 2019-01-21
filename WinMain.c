@@ -1,7 +1,13 @@
 #include<windows.h>
 #include<stdlib.h>
 
-#include "GlobalNum.h"
+#include"GlobalNum.h"
+#include"Init.h"
+#include"BoardDraw.h"
+#include"UI.h"
+#include"SearchMouse.h"
+#include"KeyController.h"
+
 
 LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp);
 
@@ -52,7 +58,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp) {
 		break;
 
 	case WM_PAINT:	//•`‰æ
-
+		BoardDraw(hwnd);
 		break;
 	}
 	return DefWindowProc(hwnd, msg, wp, lp);
