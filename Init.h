@@ -3,6 +3,6 @@
 
 #include "GlobalNum.h"
 
-void init();
+void Init();
 
 #endif

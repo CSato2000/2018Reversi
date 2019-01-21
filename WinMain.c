@@ -43,7 +43,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp) {
 	switch (msg) {
 	case WM_CREATE:	//èâä˙âª	
-
+		Init();
 		break;
 	case WM_DESTROY:	//èIóπ
 
