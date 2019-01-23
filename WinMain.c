@@ -50,7 +50,8 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp) {
 		break;
 
 	case WM_LBUTTONDOWN:	//マウス左ボタンが押された
-		//SearchMouse(POINT pos);
+		
+		SearchMouse(lp);
 		InvalidateRect(hwnd, NULL, FALSE);
 		break;
 
