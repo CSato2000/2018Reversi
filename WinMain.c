@@ -46,7 +46,8 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp) {
 		Init();
 		break;
 	case WM_DESTROY:	//終了
-
+		PostQuitMessage(0);
+		exit(0);
 		break;
 
 	case WM_LBUTTONDOWN:	//マウス左ボタンが押された
