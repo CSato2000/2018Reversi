@@ -5,6 +5,8 @@
 #include "ConstantNum.h"
 #include "GlobalNum.h"
 
+//ˆø‚«•ª‚¯—p’è”
+#define DRAW 3
 
 void GameEnd();
 int GetWinner();
