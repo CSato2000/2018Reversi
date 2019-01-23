@@ -13,8 +13,8 @@ void UpSet(int x, int y) {
 	static	int checkRotation[8][2] = { { -1,-1 },{ 0,-1 },{ 1,-1 },{ 1,0 },{ 1,1 },{ 0,1 },{ -1,1 },{ -1,0 } };
 	revCount = 0;
 	typeRev = (turn == WHITE ? BLACK : WHITE);
-	revPosX[10] = 0;
-	revPosY[10] = 0;
+	revPosX[40] = 0;
+	revPosY[40] = 0;
 
 	//周囲8方向分ひっくり返す
 	for (int i = 0; i < 8; i++) {
