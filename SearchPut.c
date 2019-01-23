@@ -10,7 +10,7 @@ int SearchPut(x, y) {
 	int i;			//カウント用
 	int cx, cy;		//調べる用
 	int turnRev;	//現在ターンの逆
-	int putJudge;	//置けるかどうか 置ける：TRUE / 置けない：FALSE
+	int putJudge = 0;	//置けるかどうか 置ける：TRUE / 置けない：FALSE
 
 	/* マスの周りを調べる */
 	for (i = 0; i < 8; i++) {
