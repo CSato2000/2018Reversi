@@ -2,12 +2,12 @@
 
 void BoardDraw(HWND hWnd) {
 
-	
+	//宣言
 	static HDC hdc;
 	static PAINTSTRUCT ps;
 	static HBRUSH hBrush[4];
 	static initFlag;
-
+	
 	if (initFlag == 0) {
 		hBrush[0] = CreateSolidBrush(RGB(0, 0xAA, 0));          // 盤面（緑）
 		hBrush[1] = CreateSolidBrush(RGB(0xFF, 0xFF, 0xFF));    // WHITE
@@ -23,6 +23,7 @@ void BoardDraw(HWND hWnd) {
 	{ 300,300 }
 	};
 
+	//ペイントハンドルの作成
 	hdc = BeginPaint(hWnd, &ps);
 
 
