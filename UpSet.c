@@ -11,52 +11,59 @@
 
 void UpSet(int x, int y) {
 	static	int checkRotation[8][2] = { { -1,-1 },{ 0,-1 },{ 1,-1 },{ 1,0 },{ 1,1 },{ 0,1 },{ -1,1 },{ -1,0 } };
-	typeRev = (turn == WHITE ? BLACK : WHITE);
-	revCount = 0;
-	backCount = 0;
-	revPosX[40] = 0;
-	revPosY[40] = 0;
+	int typeRev = (turn == BLACK? WHITE : BLACK); //相手のターンの色
+	int revCount = 0;  //ひっくり返す回数
+	int backCount = 0;  //もどるときにつかう
+	int revPosX[40] = {0};  //ひっくりかえすマスのx座標
+	int revPosY[40] = {0};  //ひっくりかえすマスのy座標
 
 	//周囲8方向分ひっくり返す
 	for (int i = 0; i < 8; i++) {
 
-		revCount = 0;
 		backCount = 0;
 
-		//調べるマスの場所(周囲8砲口)
-		cx = checkRotation[i][0];
-		cy = checkRotation[i][1];
-
+		//調べるマスの方向
+		int cx = checkRotation[i][0];
+		int cy = checkRotation[i][1];
+		
 		//調べるマスが自分のコマの場所になるまで
-		while (MassData[x + cx][y + cy].type !=turn && MassData[x + cx][y + cy].type != EMPTY) {
+		while (1) {
 
 			//もし先のマスに相手のコマが置いてあったら
-			if (MassData[y + cy + cy][x + cx + cx].type == typeRev) {
+			if (MassData[x + cx][y + cy].type == typeRev) {
+
+				//座標をrevPosの中に保存する
+				revPosX[revCount] = x + cx;
+				revPosY[revCount] = y + cy;
 
 				//相手のコマだった場合はrevCount++,backCount++
 				revCount++;
 				backCount++;
 
-				//座標をrevPosの中に保存する
-				revPosX[i] = x+cx;
-				revPosY[i] = y+cy;
+				//一つ先のマスへ進む
+				cx += checkRotation[i][0];
+				cy += checkRotation[i][1];
+
+			}
+			else if (MassData[x + cx][y + cy].type==turn && revCount!=0) { //一つ以上挟めるコマがあった場合
+				//処理を抜ける
+				break;
+			}
+			else { //もしなにも置かれていないマスだった場合
+				//カウントを戻して処理を抜ける
+				revCount -= backCount;
+				break;
 			}
 		}
-
-		//もし最後が何もないマスだったらカウントを戻す
-		if (MassData[x + cx + cx][y + cy + cy].type = EMPTY) {
-			revCount -= backCount;
-		}
-
-		//ひっくりかえす
-		for (int j = 0; j < revCount; j++) {
-			//配列の座標に合わせてtypeを変える
-			MassData[revPosX[j]][revPosY[j]].type = turn;
-		}
-
-		//方向の切り替え
-		cx += checkRotation[i][0];
-		cy += checkRotation[i][1];
-
 	}
+
+	//ひっくりかえす
+	for (int j = 0; j < revCount; j++) {
+		//配列の座標に合わせてtypeを変える
+		MassData[revPosX[j]][revPosY[j]].type = turn;
+	}
+
+	turn = typeRev;
+	AllCheckPut(0);
+
 }
