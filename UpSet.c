@@ -12,15 +12,14 @@
 void UpSet(int x, int y) {
 	static	int checkRotation[8][2] = { { -1,-1 },{ 0,-1 },{ 1,-1 },{ 1,0 },{ 1,1 },{ 0,1 },{ -1,1 },{ -1,0 } };
 	int typeRev = (turn == BLACK? WHITE : BLACK); //相手のターンの色
-	int revCount = 0;  //ひっくり返す回数
-	int backCount = 0;  //もどるときにつかう
+	int revCount = 0;       //ひっくり返す回数
 	int revPosX[40] = {0};  //ひっくりかえすマスのx座標
 	int revPosY[40] = {0};  //ひっくりかえすマスのy座標
 
 	//周囲8方向分ひっくり返す
 	for (int i = 0; i < 8; i++) {
 
-		backCount = 0;
+		revCount = 0;
 
 		//調べるマスの方向
 		int cx = checkRotation[i][0];
@@ -36,9 +35,8 @@ void UpSet(int x, int y) {
 				revPosX[revCount] = x + cx;
 				revPosY[revCount] = y + cy;
 
-				//相手のコマだった場合はrevCount++,backCount++
+				//相手のコマだった場合はrevCount++
 				revCount++;
-				backCount++;
 
 				//一つ先のマスへ進む
 				cx += checkRotation[i][0];
@@ -51,17 +49,23 @@ void UpSet(int x, int y) {
 			}
 			else { //もしなにも置かれていないマスだった場合
 				//カウントを戻して処理を抜ける
-				revCount -= backCount;
+				revCount =0;
 				break;
 			}
+		}//while文終了
+
+		for (int j = 0; j < revCount; j++) {
+			//配列の座標に合わせてtypeを変える
+			MassData[revPosX[j]][revPosY[j]].type = turn;
 		}
-	}
+
+	}//for文終了
 
 	//ひっくりかえす
-	for (int j = 0; j < revCount; j++) {
+	/*for (int j = 0; j < revCount; j++) {
 		//配列の座標に合わせてtypeを変える
 		MassData[revPosX[j]][revPosY[j]].type = turn;
-	}
+	}*/
 
 	turn = typeRev;
 	AllCheckPut(0);
