@@ -1,11 +1,12 @@
-#include <windows.h>
 #include "UI.h"
 
 void UI(hWnd) {
 
+	//ハンドルの取得
 	HDC hdc;
 	hdc = GetDC(hWnd);
 
+	//文字列
 	LPTSTR lptStr1 = TEXT("黒のターンです");
 	LPTSTR lptStr2 = TEXT("白のターンです");
 	LPTSTR lptStr3 = TEXT("黒の勝ちです");
@@ -22,16 +23,17 @@ void UI(hWnd) {
 	//TextOut(hdc, 460, 110, lptStr5, lstrlen(lptStr5));
 
 	//駒数表示
-	WCHAR buf[20];
-	int length = wsprintf(buf, "黒の総数:%d", blackframe);
-	TextOut(hdc, 560, 30, buf, length);
+	TCHAR buf[40];
+	int length = wsprintf(buf, TEXT("黒の総数:%d"), blackframe);
+	TextOut(hdc, 480, 30, buf, length);
 
-	length = wsprintf(buf, "白の総数:%d", whiteframe);
-	TextOut(hdc, 560, 50, buf, length);
+	length = wsprintf(buf, TEXT("白の総数:%d"), whiteframe);
+	TextOut(hdc, 480, 50, buf, length);
 
-	length = wsprintf(buf, "駒の総数:%d", blackframe + whiteframe);
-	TextOut(hdc, 560, 70, buf, length);
+	length = wsprintf(buf, TEXT("駒の総数:%d"), blackframe + whiteframe);
+	TextOut(hdc, 480, 70, buf, length);
 
+	//ハンドルの解放
 	ReleaseDC(hWnd,hdc);
 
 }
