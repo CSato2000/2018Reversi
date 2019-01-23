@@ -25,12 +25,13 @@ int AllCheckPut(gameEndJudge) {
 	}
 
 	//’u‚¯‚éêŠ‚ª‚È‚©‚Á‚½‚çƒ^[ƒ“Œğ‘ã
-	if (putJudge == FALSE) {
+	if (putJudge != TRUE) {
 		if (gameEndJudge == TRUE) {
 			GameEnd();
 			return 0;
 		}
 
+		gameEndJudge = FALSE;
 		turn = (turn == WHITE ? BLACK : WHITE);
 		AllCheckPut(TRUE);
 

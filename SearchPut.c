@@ -24,7 +24,7 @@ int SearchPut(x, y) {
 		while (MassData[y + cy][x + cx].type == turnRev) {
 
 			//’²‚×‚½æ‚ª‘Šè‚ÌF‚Å‚»‚Ìæ‚ª©•ª‚ÌF‚È‚ç’u‚¯‚é
-			if (MassData[y + cy + cy][x + cx + cx].type == turn) {
+			if (MassData[y + cy + checkOrder[i][0]][x + cx + checkOrder[i][1]].type == turn) {
 
 				MassData[y][x].putflag = TRUE;
 				putJudge = TRUE;
