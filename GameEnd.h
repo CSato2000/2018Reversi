@@ -8,7 +8,5 @@
 
 void GameEnd();
 int GetWinner();
-int GetGameEnd();
-void SetGameEnd(int);
 
 #endif
