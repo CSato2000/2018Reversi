@@ -18,7 +18,7 @@ int KeyController(WPARAM code) {
 	if (code == VK_SPACE && MassData[keyPos.x+1][keyPos.y+1].putflag == 1) {
 		MassData[keyPos.x+1][keyPos.y+1].type = turn;
 		//‚±‚±‚ÉƒRƒ}‚ğ’u‚­ŠÖ”‚ğŒÄ‚Ô
-		
+		UpSet(keyPos.x + 1, keyPos.y + 1);
 	}
 
 	return 0;
