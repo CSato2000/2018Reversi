@@ -2,7 +2,9 @@
 #define _SEARCH_MOUSE_INCLUDE_
 
 #include<windows.h>
+#include "GlobalNum.h"
+#include "UpSet.h"
 
-void SearchMouse(POINT, LPARAM);
+int SearchMouse(LPARAM);
 
 #endif
