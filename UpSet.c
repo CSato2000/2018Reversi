@@ -11,43 +11,48 @@
 
 void UpSet(int x, int y) {
 	static	int checkRotation[8][2] = { { -1,-1 },{ 0,-1 },{ 1,-1 },{ 1,0 },{ 1,1 },{ 0,1 },{ -1,1 },{ -1,0 } };
-	revCount = 0;
 	typeRev = (turn == WHITE ? BLACK : WHITE);
+	revCount = 0;
+	backCount = 0;
 	revPosX[40] = 0;
 	revPosY[40] = 0;
 
 	//周囲8方向分ひっくり返す
 	for (int i = 0; i < 8; i++) {
 
+		revCount = 0;
+		backCount = 0;
+
 		//調べるマスの場所(周囲8砲口)
 		cx = checkRotation[i][0];
 		cy = checkRotation[i][1];
 
 		//調べるマスが自分のコマの場所になるまで
-		while (MassData[x + cx][y + cy].type == typeRev) {
+		while (MassData[x + cx][y + cy].type !=turn && MassData[x + cx][y + cy].type != EMPTY) {
 
 			//もし先のマスに相手のコマが置いてあったら
-			if (MassData[y + cy + cy][x + cx + cx].type == turn) {
-				//その先のマスの状態が自分のコマか空白のマスになるまで調べる
-				//相手のコマだった場合はrevCount++
+			if (MassData[y + cy + cy][x + cx + cx].type == typeRev) {
+
+				//相手のコマだった場合はrevCount++,backCount++
 				revCount++;
+				backCount++;
+
 				//座標をrevPosの中に保存する
-				//もし最後が何もないマスだったらカウントを戻す
+				revPosX[i] = x+cx;
+				revPosY[i] = y+cy;
 			}
 		}
 
-		//ひっくりかえす
-		for (int k = 0; k < revCount; k++) {
-			//配列の座標に合わせてtypeを変える
-			MassData[revPosX[k]][revPosY[k]].type = turn;
+		//もし最後が何もないマスだったらカウントを戻す
+		if (MassData[x + cx + cx][y + cy + cy].type = EMPTY) {
+			revCount -= backCount;
 		}
-			
-		//カウントの初期化
-		revCount = 0;
 
-		//配列の中身の初期化
-		revPosX[10] = 0;
-		revPosY[10]= 0;
+		//ひっくりかえす
+		for (int j = 0; j < revCount; j++) {
+			//配列の座標に合わせてtypeを変える
+			MassData[revPosX[j]][revPosY[j]].type = turn;
+		}
 
 		//方向の切り替え
 		cx += checkRotation[i][0];
