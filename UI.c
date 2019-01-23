@@ -20,7 +20,7 @@ void UI(hWnd) {
 	//èüóòé“ï\é¶
 	if (GetWinner() == BLACK) {TextOut(hdc, 460, 110, lptStr3, lstrlen(lptStr3));}
 	if (GetWinner() == WHITE) { TextOut(hdc, 460, 110, lptStr4, lstrlen(lptStr4)); }
-	if (GetWinner() == 0) { TextOut(hdc, 460, 110, lptStr5, lstrlen(lptStr5)); }
+	if (GetWinner() == DRAW) { TextOut(hdc, 460, 110, lptStr5, lstrlen(lptStr5)); }
 
 	//ãÓêîï\é¶
 	TCHAR buf[40];
