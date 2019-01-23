@@ -12,15 +12,13 @@ void SearchMouse(POINT pos) {
 	//クリックしたマスに白を配置
 	if (MassData[pos.x / 50 + 1][pos.y / 50 + 1].putflag == TRUE && turn == WHITE) {
 		MassData[pos.x / 50 + 1][pos.y / 50 + 1].type = WHITE;
-		turn = BLACK;
-		whiteframe++;
+
 	}
 
 	//クリックしたマスに黒を配置
 	if (MassData[pos.x / 50 + 1][pos.y / 50 + 1].putflag == TRUE && turn == BLACK) {
 		MassData[pos.x / 50 + 1][pos.y / 50 + 1].type = BLACK;
-		turn = WHITE;
-		blackframe++;
+
 	}
 
 	//PAINTイベントを発生させる

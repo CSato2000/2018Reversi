@@ -5,7 +5,13 @@
 #include "GameEnd.h"
 #include "GlobalNum.h"
 
-int AllCheckPut();
+/**********************************************
+関数名：AllCheckPut
+説明：マスの周りを調べる
+引数：どこから呼ばれたか　基本的に他のとこから呼ぶ場合は0
+戻り値：なし
+**********************************************/
+int AllCheckPut(int);
 
 
 #endif
