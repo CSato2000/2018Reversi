@@ -62,6 +62,8 @@ void BoardDraw(HWND hWnd) {
 			dot[i].x + 5, dot[i].y + 5);
 	}
 
+	blackframe = 0;
+	whiteframe = 0;
 
 	// ÉIÉZÉçî’ÇÃï\é¶
 	for (int i = 1; i <= 8; i++) {
@@ -69,9 +71,11 @@ void BoardDraw(HWND hWnd) {
 			if (MassData[i][j].type != EMPTY) {
 				if (MassData[i][j].type == WHITE) {
 					SelectObject(hdc, hBrush[1]);  //îí
+					whiteframe++;
 				}
 				else if (MassData[i][j].type == BLACK) {
 					SelectObject(hdc, hBrush[2]);  //çï
+					blackframe++;
 				}
 				Ellipse(hdc, (i - 1) * 50, (j - 1) * 50, i * 50, j * 50);
 
