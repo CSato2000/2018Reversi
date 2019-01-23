@@ -3,7 +3,7 @@
 
 void UI(hWnd) {
 
-	HDC hdc;
+	static HDC hdc;
 	hdc = GetDC(hWnd);
 
 	LPTSTR lptStr1 = TEXT("çïÇÃÉ^Å[ÉìÇ≈Ç∑");
@@ -13,7 +13,8 @@ void UI(hWnd) {
 	if (turn == WHITE)TextOut(hdc, 460, 10, lptStr2, lstrlen(lptStr2));
 
 	WCHAR buf[20];
-	int length = wsprintf(buf, L"%d", blackframe);
+	int length;
+	length = wsprintf(buf, L"%d", blackframe);
 	TextOut(hdc, 460, 30, buf, length);
 
 	length = wsprintf(buf, L"%d", whiteframe);
