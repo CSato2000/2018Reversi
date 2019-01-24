@@ -20,7 +20,7 @@ int SearchMouse(LPARAM lParam) {
 	//クリックしたマスに白を配置
 	if (MassData[massX][massY].putflag == TRUE) {
 		MassData[massX][massY].type = turn;
-		//UpSet(massX, massY);
+		UpSet(massX, massY);
 	}
 
 	return 0;

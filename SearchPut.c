@@ -27,7 +27,8 @@ int SearchPut(x, y) {
 			if (MassData[y + cy + checkOrder[i][0]][x + cx + checkOrder[i][1]].type == turn) {
 
 				MassData[y][x].putflag = TRUE;
-				putJudge = TRUE;
+				putJudge = TRUE;	//置ける
+				putJudgeCnt = 0;	// リセット
 
 			}
 
@@ -37,6 +38,8 @@ int SearchPut(x, y) {
 
 		}
 	}
-	if (putJudge == TRUE) return TRUE;
-	return FALSE;
+
+	//if (putJudge == TRUE) return TRUE;
+
+	return putJudge;
 }
