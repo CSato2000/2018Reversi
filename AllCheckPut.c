@@ -9,6 +9,7 @@ int AllCheckPut() {
 
 	int x, y;	//マスの座標
 	int putJudge = FALSE; //置ける：TRUE / 置けない：FALSE
+	int putJudgeFlg = FALSE; //上記と同じ
 
 	/* すべてのマスを調べる */
 	for (y = 1; y <= 8; y++) {
@@ -20,20 +21,26 @@ int AllCheckPut() {
 
 			if (MassData[y][x].type == EMPTY) {
 				putJudge = SearchPut(x, y);		//SearchPut呼び出し
+				if (putJudgeFlg != TRUE) putJudgeFlg = putJudge;
 			}
 		}
 	}
 
 	//置ける場所がなかったらターン交代
-	if (putJudge != TRUE) {
+	if (putJudgeFlg != TRUE) {
 
-		if (putJudgeCnt <= 2) {
+		if (putJudgeCnt >= 2) {
 			GameEnd();
 			return 0;
 		}
 
 		putJudgeCnt++;
 		turn = (turn == WHITE ? BLACK : WHITE);
+		AllCheckPut();
+
+		int onButton;
+		onButton = MessageBox(NULL, TEXT("置けませんでした\nターンをパスします"),
+			TEXT("メッセージ"), MB_OK);
 
 	}
 
