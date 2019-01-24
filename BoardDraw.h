@@ -1,3 +1,6 @@
+#ifndef _BOARD_DRAW_INCLUDE_
+#define _BOARD_DRAW_INCLUDE_
+
 #include "GlobalNum.h"
 #include <Windows.h>
 
@@ -8,3 +11,5 @@
 ñﬂÇËílÅFÇ»Çµ
 *******************************************************/
 void BoardDraw(HWND);
+
+#endif
