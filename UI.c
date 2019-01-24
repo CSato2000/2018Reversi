@@ -24,13 +24,13 @@ void UI(hWnd) {
 
 	//‹î”•\¦
 	TCHAR buf[40];
-	int length = wsprintf(buf, TEXT("•‚Ì‘”:%d"), blackframe);
+	int length = wsprintf(buf, TEXT("•‚Ì‘”:%2d "), blackframe);
 	TextOut(hdc, 480, 30, buf, length);
 
-	length = wsprintf(buf, TEXT("”’‚Ì‘”:%d"), whiteframe);
+	length = wsprintf(buf, TEXT("”’‚Ì‘”:%2d "), whiteframe);
 	TextOut(hdc, 480, 50, buf, length);
 
-	length = wsprintf(buf, TEXT("‹î‚Ì‘”:%d"), blackframe + whiteframe);
+	length = wsprintf(buf, TEXT("‹î‚Ì‘”:%2d "), blackframe + whiteframe);
 	TextOut(hdc, 480, 70, buf, length);
 
 	//ƒnƒ“ƒhƒ‹‚Ì‰ğ•ú
