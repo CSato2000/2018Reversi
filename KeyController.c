@@ -1,7 +1,7 @@
 #include<Windows.h>
 #include "KeyController.h"
 
-int KeyController(WPARAM code) {
+void KeyController(WPARAM code) {
 	//キーの判定（左右上下）
 	if (code == VK_LEFT)keyPos.x--;
 	if (code == VK_RIGHT)keyPos.x++;
@@ -21,5 +21,4 @@ int KeyController(WPARAM code) {
 		UpSet(keyPos.x + 1, keyPos.y + 1);
 	}
 
-	return 0;
 }

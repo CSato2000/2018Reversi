@@ -4,7 +4,12 @@
 #include "GlobalNum.h"
 #include "UpSet.h"
 #include<windows.h>
-
-int KeyController(WPARAM);
+/*******************************************************
+関数名：KeyController
+機能：キーボード操作の制御 どのキーが押されたかの情報をWM_KEYDOWNからもらう
+引数：WPARAM型 keyコード
+戻り値：なし
+*******************************************************/
+void KeyController(WPARAM);
 
 #endif
