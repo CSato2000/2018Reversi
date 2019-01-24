@@ -4,11 +4,12 @@
 #include "SearchPut.h"
 #include "GameEnd.h"
 #include "GlobalNum.h"
+#include "BoardDraw.h"
 
 /**********************************************
 関数名：AllCheckPut
 説明：マスの周りを調べる
-引数：どこから呼ばれたか　基本的に他のとこから呼ぶ場合は0
+引数：なし
 戻り値：なし
 **********************************************/
 int AllCheckPut();

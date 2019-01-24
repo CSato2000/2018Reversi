@@ -1,6 +1,4 @@
 #include "AllCheckPut.h"
-#include "SearchPut.h"
-#include "GameEnd.h"
 
 #define FALSE 0
 #define TRUE 1
@@ -38,9 +36,11 @@ int AllCheckPut() {
 		turn = (turn == WHITE ? BLACK : WHITE);
 		AllCheckPut();
 
-		int onButton;
-		onButton = MessageBox(NULL, TEXT("置けませんでした\nターンをパスします"),
-			TEXT("メッセージ"), MB_OK);
+		if (blackframe + whiteframe >= 64) {
+			int onButton;
+			onButton = MessageBox(NULL, TEXT("置けませんでした\nターンをパスします"),
+				TEXT("メッセージ"), MB_OK);
+		}
 
 	}
 
