@@ -12,6 +12,6 @@ void Init() {
 	MassData[4][5].type = WHITE;
 	MassData[5][4].type = WHITE;
 
-	AllCheckPut(0);
+	AllCheckPut();
 
 }

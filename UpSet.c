@@ -68,6 +68,6 @@ void UpSet(int x, int y) {
 	}*/
 
 	turn = typeRev;
-	AllCheckPut(0);
+	AllCheckPut();
 
 }

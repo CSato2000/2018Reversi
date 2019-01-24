@@ -15,4 +15,6 @@ extern sMASS MassData [10][10]; //各マスのデータ配列
 
 extern POINT keyPos;
 
+extern int putJudgeCnt;		//置けなくなったかの判定用
+
 #endif
