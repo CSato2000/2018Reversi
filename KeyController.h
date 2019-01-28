@@ -3,6 +3,7 @@
 
 #include "GlobalNum.h"
 #include "UpSet.h"
+#include "Init.h"
 #include<windows.h>
 /*******************************************************
 ä÷êîñºÅFKeyController
