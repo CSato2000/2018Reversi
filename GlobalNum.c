@@ -10,3 +10,5 @@ POINT keyPos = { 0 };
 
 int putJudgeCnt = 0;	//’u‚¯‚È‚©‚Á‚½”»’è
 
+int sceneFlag = INGAME;
+

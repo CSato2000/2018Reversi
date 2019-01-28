@@ -11,9 +11,9 @@
 #define WHITE 2  //白
 
 //シーンの状態
-#define TITLE 0   //タイトル画面
-#define GAME 1    //ゲーム中
-#define RESULT 2  //結果画面
+//#define TITLE 0   //タイトル画面
+#define INGAME 0    //ゲーム中
+#define RESULT 1  //結果画面
 
 
 //マスの情報を持った構造体　二次元配列で定義する

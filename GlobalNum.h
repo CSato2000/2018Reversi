@@ -17,4 +17,6 @@ extern POINT keyPos;
 
 extern int putJudgeCnt;		//’u‚¯‚È‚­‚È‚Á‚½‚©‚Ì”»’è—p
 
+extern int sceneFlag;
+
 #endif
