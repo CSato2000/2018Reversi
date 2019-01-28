@@ -36,12 +36,6 @@ int AllCheckPut() {
 		turn = (turn == WHITE ? BLACK : WHITE);
 		AllCheckPut();
 
-		if (blackframe + whiteframe >= 64) {
-			int onButton;
-			onButton = MessageBox(NULL, TEXT("置けませんでした\nターンをパスします"),
-				TEXT("メッセージ"), MB_OK);
-		}
-
 	}
 
 	return 0;

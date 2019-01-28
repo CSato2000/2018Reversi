@@ -4,6 +4,7 @@
 #include <windows.h>
 #include "ConstantNum.h"
 #include "GlobalNum.h"
+#include "Init.h"
 
 //ˆø‚«•ª‚¯—p’è”
 #define DRAW 3

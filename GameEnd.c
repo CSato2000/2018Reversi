@@ -7,6 +7,9 @@ void GameEnd() {
 		if (blackframe < whiteframe) { winner = WHITE; }
 		if (blackframe > whiteframe) { winner = BLACK; }
 		if (blackframe == whiteframe) { winner = DRAW; }
+
+		sceneFlag = RESULT;
+
 }
 
 //UI‚ÉŒÄ‚Î‚ê‚é

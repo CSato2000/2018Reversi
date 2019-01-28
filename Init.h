@@ -3,6 +3,7 @@
 
 #include "GlobalNum.h"
 #include "AllCheckPut.h"
+#include "ConstantNum.h"
 
 void Init();
 

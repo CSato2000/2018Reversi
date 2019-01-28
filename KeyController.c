@@ -22,7 +22,7 @@ void KeyController(WPARAM code) {
 		UpSet(keyPos.x + 1, keyPos.y + 1);
 	}
 	if (code == VK_SPACE && sceneFlag == RESULT) {
-		sceneFlag = GAME;
-		init();
+		sceneFlag = INGAME;
+		Init();
 	}
 }

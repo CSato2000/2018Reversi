@@ -64,6 +64,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp) {
 	case WM_PAINT:	//•`‰æ
 		BoardDraw(hwnd);
 		UI(hwnd);
+		InvalidateRect(hwnd, NULL, FALSE);
 		break;
 	}
 	return DefWindowProc(hwnd, msg, wp, lp);

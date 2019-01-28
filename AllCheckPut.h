@@ -5,6 +5,7 @@
 #include "GameEnd.h"
 #include "GlobalNum.h"
 #include "BoardDraw.h"
+#include "ConstantNum.h"
 
 /**********************************************
 ä÷êîñºÅFAllCheckPut
