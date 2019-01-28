@@ -2,15 +2,16 @@
 #include "AllCheckPut.h"
 
 void UpSet(int x, int y) {
-	static	int checkRotation[8][2] = { { -1,-1 },{ 0,-1 },{ 1,-1 },{ 1,0 },{ 1,1 },{ 0,1 },{ -1,1 },{ -1,0 } };
+	static	int checkRotation[8][2] = { { -1,-1 },{ 0,-1 },{ 1,-1 },{ 1,0 },{ 1,1 },{ 0,1 },{ -1,1 },{ -1,0 } };  //マスの周囲8方向
 	int typeRev = (turn == BLACK? WHITE : BLACK); //相手のターンの色
 	int revCount = 0;       //コマをひっくり返す数のカウント
 	int revPosX[40] = {0};  //ひっくりかえすマスのx座標
 	int revPosY[40] = {0};  //ひっくりかえすマスのy座標
 
-	//周囲8方向分ひっくり返す
+	//周囲8方向分のひっくり返せるコマを探す
 	for (int i = 0; i < 8; i++) {
 
+		//カウントの初期化
 		revCount = 0;
 
 		//調べるマスの方向
@@ -35,7 +36,7 @@ void UpSet(int x, int y) {
 				cy += checkRotation[i][1];
 
 			}
-			else if (MassData[x + cx][y + cy].type==turn && revCount!=0) { //一つ以上挟めるコマがあった場合
+			else if (MassData[x + cx][y + cy].type==turn && revCount!=0) { //自分のコマに当たり、かつ一つ以上挟めるコマがあった場合
 				//処理を抜ける
 				break;
 			}
@@ -53,7 +54,10 @@ void UpSet(int x, int y) {
 
 	}//for文終了
 
+	//相手のターンに切り替える
 	turn = typeRev;
+
+	//AllCheckPutの呼び出し
 	AllCheckPut(0);
 
 }
