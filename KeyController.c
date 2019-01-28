@@ -1,6 +1,7 @@
 #include<Windows.h>
 #include "KeyController.h"
 
+
 void KeyController(WPARAM code) {
 	//キーの判定（左右上下）
 	if (code == VK_LEFT)keyPos.x--;
@@ -20,5 +21,8 @@ void KeyController(WPARAM code) {
 		//ここにコマを置く関数を呼ぶ
 		UpSet(keyPos.x + 1, keyPos.y + 1);
 	}
-
+	if (code == VK_SPACE && sceneFlag == RESULT) {
+		sceneFlag = GAME;
+		init();
+	}
 }
