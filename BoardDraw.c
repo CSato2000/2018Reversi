@@ -46,7 +46,7 @@ void BoardDraw(HWND hWnd) {
 
 
 	//置けるマスを表示
-	SelectObject(hdc, hBrush[4]);
+	SelectObject(hdc, turn == WHITE ? hBrush[1]: hBrush[2]);
 	for (int i = 1; i <= 8; i++) {
 		for (int j = 1; j <= 8; j++) {
 			if (MassData[i][j].putflag == 1) {
