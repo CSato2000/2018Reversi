@@ -21,7 +21,7 @@ void KeyController(WPARAM code) {
 		//‚±‚±‚ÉƒRƒ}‚ğ’u‚­ŠÖ”‚ğŒÄ‚Ô
 		UpSet(keyPos.x + 1, keyPos.y + 1);
 	}
-	if (code == VK_SPACE && sceneFlag == RESULT) {
+	if (code == VK_RETURN && sceneFlag == RESULT) {
 		sceneFlag = INGAME;
 		Init();
 	}
