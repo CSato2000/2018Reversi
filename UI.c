@@ -13,8 +13,8 @@ void UI(hWnd) {
 	LPTSTR lptStr3 = TEXT("黒の勝ちです");
 	LPTSTR lptStr4 = TEXT("白の勝ちです");
 	LPTSTR lptStr5 = TEXT("引き分けです");
-	LPTSTR lptStr6 = TEXT("　　　　　　");
-	LPTSTR lptStr7 = TEXT("再戦：ENTER");
+	LPTSTR lptStr6 = TEXT("　　　　　　　　　　");
+	LPTSTR lptStr7 = TEXT("再戦 ： ENTER");
 
 	//フォントを生成
 	hFont = CreateFont(
@@ -45,31 +45,32 @@ void UI(hWnd) {
 		if (GetWinner() == WHITE) { TextOut(hdc, 460, 210, lptStr4, lstrlen(lptStr4)); }
 		if (GetWinner() == DRAW) { TextOut(hdc, 460, 210, lptStr5, lstrlen(lptStr5)); }
 
-		SelectObject(hdc, GetStockObject(SYSTEM_FONT));
-
 		TextOut(hdc, 460, 310, lptStr7, lstrlen(lptStr7));
 
 	}
 	else {
-		TextOut(hdc, 460, 210, lptStr6, lstrlen(lptStr6));
+		//テキストを消去
+		SelectObject(hdc, hFont);
 		TextOut(hdc, 460, 310, lptStr6, lstrlen(lptStr6));
+		TextOut(hdc, 460, 210, lptStr6, lstrlen(lptStr6));
+		
 	}
 
 	//くそでかフォントを削除
 	DeleteObject(hFont);
 
-	
+	SelectObject(hdc, GetStockObject(SYSTEM_FONT));
 
 	//駒数表示
 	TCHAR buf[40];
-	int length = wsprintf(buf, TEXT("黒の総数:%2d "), blackframe);
+	int length = wsprintf(buf, TEXT("黒の総数: %2d "), blackframe);
 	TextOut(hdc, 480, 80, buf, length);
 
-	length = wsprintf(buf, TEXT("白の総数:%2d "), whiteframe);
-	TextOut(hdc, 480, 100, buf, length);
+	length = wsprintf(buf, TEXT("白の総数: %2d "), whiteframe);
+	TextOut(hdc, 480, 105, buf, length);
 
-	length = wsprintf(buf, TEXT("駒の総数:%2d "), blackframe + whiteframe);
-	TextOut(hdc, 480, 120, buf, length);
+	length = wsprintf(buf, TEXT("駒の総数: %2d "), blackframe + whiteframe);
+	TextOut(hdc, 480, 150, buf, length);
 
 	//ハンドルの解放
 	ReleaseDC(hWnd,hdc);
