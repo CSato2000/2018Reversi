@@ -43,7 +43,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp) {
 	switch (msg) {
 	case WM_CREATE:	//èâä˙âª	
-		Init();
+		Init(hwnd);
 		break;
 	case WM_DESTROY:	//èIóπ
 		PostQuitMessage(0);
@@ -62,9 +62,10 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp) {
 		break;
 
 	case WM_PAINT:	//ï`âÊ
+		InvalidateRect(hwnd, NULL, FALSE);
 		BoardDraw(hwnd);
 		UI(hwnd);
-		InvalidateRect(hwnd, NULL, FALSE);
+		
 		break;
 	}
 	return DefWindowProc(hwnd, msg, wp, lp);

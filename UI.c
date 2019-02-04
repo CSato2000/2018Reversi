@@ -13,6 +13,7 @@ void UI(hWnd) {
 	LPTSTR lptStr4 = TEXT("白の勝ちです");
 	LPTSTR lptStr5 = TEXT("引き分けです");
 	LPTSTR lptStr6 = TEXT("　　　　　　");
+	LPTSTR lptStr7 = TEXT("再戦：SPACE");
 
 
 
@@ -25,22 +26,15 @@ void UI(hWnd) {
 		if (GetWinner() == BLACK) { TextOut(hdc, 460, 110, lptStr3, lstrlen(lptStr3)); }
 		if (GetWinner() == WHITE) { TextOut(hdc, 460, 110, lptStr4, lstrlen(lptStr4)); }
 		if (GetWinner() == DRAW) { TextOut(hdc, 460, 110, lptStr5, lstrlen(lptStr5)); }
+
+		TextOut(hdc, 460, 310, lptStr7, lstrlen(lptStr7));
 	}
 	else {
 		TextOut(hdc, 460, 110, lptStr6, lstrlen(lptStr6));
+		TextOut(hdc, 460, 310, lptStr6, lstrlen(lptStr6));
 	}
 
-	if (sceneFlag == RESULT) {
-		int onButton = 0;
-		onButton = MessageBox(NULL, TEXT("再戦しますか？"),
-			TEXT("メッセージ"), MB_YESNO);
-
-		if (onButton == IDYES) {
-			sceneFlag = INGAME;
-			Init();
-			//InvalidateRect(hwnd, NULL, FALSE);
-		}
-	}
+	
 
 	//駒数表示
 	TCHAR buf[40];
