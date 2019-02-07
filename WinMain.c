@@ -46,6 +46,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp) {
 		Init(hwnd);
 		break;
 	case WM_DESTROY:	//èIóπ
+		BoardDraw_Finalize();
 		PostQuitMessage(0);
 		exit(0);
 		break;

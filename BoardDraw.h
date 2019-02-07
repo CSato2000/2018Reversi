@@ -10,6 +10,8 @@
 引数：HWND型 ウィンドウハンドル
 戻り値：なし
 *******************************************************/
-void BoardDraw(HWND);
+#define BRUSH_MAX 5
 
+void BoardDraw(HWND);
+void BoardDraw_Finalize();
 #endif

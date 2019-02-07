@@ -1,19 +1,20 @@
 #include "BoardDraw.h"
 
+static HBRUSH hBrush[BRUSH_MAX];
+
 void BoardDraw(HWND hWnd) {
 
 	//宣言
 	static HDC hdc;
 	static PAINTSTRUCT ps;
-	static HBRUSH hBrush[5];
 	static initFlag;
 	
 	if (initFlag == 0) {
 		hBrush[0] = CreateSolidBrush(RGB(0, 0xAA, 0));          // 盤面（緑）
 		hBrush[1] = CreateSolidBrush(RGB(0xFF, 0xFF, 0xFF));    // WHITE
 		hBrush[2] = CreateSolidBrush(RGB(0, 0, 0));		        // BLACK
-		hBrush[3] = CreateSolidBrush(RGB(0xAA, 0xAA, 0xAA));
-		hBrush[4] = CreateSolidBrush(RGB(0xFF, 0xFF, 0x14));
+		hBrush[3] = CreateSolidBrush(RGB(0xAA, 0xAA, 0xAA));	// 灰色
+		hBrush[4] = CreateSolidBrush(RGB(0xFF, 0xFF, 0x14));	// デバッグ用カラー
 		initFlag = 1;
 	}
 
@@ -87,4 +88,10 @@ void BoardDraw(HWND hWnd) {
 		}
 	}
 	EndPaint(hWnd, &ps);
+}
+
+void BoardDraw_Finalize() {
+	for (int i = 0; i < BRUSH_MAX; i++) {
+		DeleteObject(hBrush[i]);
+	}
 }
