@@ -18,7 +18,6 @@ void KeyController(WPARAM code) {
 	//スペースが押された時、尚且つ、そのマスにコマが置ける場合
 	if (code == VK_SPACE && MassData[keyPos.x+1][keyPos.y+1].putflag == 1) {
 		MassData[keyPos.x+1][keyPos.y+1].type = turn;
-		//ここにコマを置く関数を呼ぶ
 		UpSet(keyPos.x + 1, keyPos.y + 1);
 	}
 	if (code == VK_RETURN && sceneFlag == RESULT) {
